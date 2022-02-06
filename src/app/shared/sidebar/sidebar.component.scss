@@ -1,0 +1,74 @@
+@import "../../../styles/variables.scss";
+
+li.nav-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.nav-item.active > * {
+  color: $primary-color !important;
+  font-weight: bold;
+  font-family: "Open Sans" !important;
+  border-left: 4px solid $primary-color;
+  background-color: #F7F7F7;
+
+  img {
+    color: $primary-color !important;
+    margin-left: -4px;
+  }
+
+  a.nav-link {
+    color: $primary-color !important;
+    font-family: "Open Sans" !important;
+  }
+}
+
+a.nav-link {
+  font-family: "Open Sans" !important;
+  font-size: 14px;
+}
+
+.nav-item > * {
+  color: $light-grey-color;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.nav-item:hover > * {
+  color: $primary-color !important;
+
+  a.nav-link:hover {
+    color: $primary-color !important;
+  }
+}
+
+* {
+  transition: all 0.3s;
+}
+
+.side-top {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  // margin-right: 5%;
+}
+.nav-btn {
+  border: white;
+  background: white;
+  margin-right: 24px;
+  margin-left: 2px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+
+.create-button{
+    background-color: #fbd23c;
+}
+.logo{
+    font-size: 50px !important;
+    position: relative !important;
+    top: 20px !important;
+    right: 30px !important;
+}

@@ -1,0 +1,23 @@
+<div class="back"><a routerLink="" style="color: black;"><mat-icon>arrow_back</mat-icon></a></div>
+
+<div class="form-container">
+
+<form [formGroup]="contactsForm" >
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter Name" formControlName="name" required>
+      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone number</mat-label>
+      <input  (keypress)="keyDown($event)"  matInput formControlName="mobilenumber" required>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>Include area code</mat-hint>
+    </mat-form-field>
+
+    <div class="example-button-row">
+
+        <button mat-button color="primary" (click)="onSubmit()">Save</button>
+   
+      </div>
+</form>
+</div>

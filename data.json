@@ -1,0 +1,24 @@
+{
+  "phonebook": [
+    {
+      "id": "c1644154488859",
+      "name": "Frederck",
+      "mobilenumber": "0234565432"
+    },
+    {
+      "id": "c1644154741578",
+      "name": "Letago",
+      "mobilenumber": "0123234234"
+    },
+    {
+      "id": "c1644166082328",
+      "name": "Fred",
+      "mobilenumber": "0112223333"
+    },
+    {
+      "id": "c1644166187566",
+      "name": "lerato",
+      "mobilenumber": "2234456676"
+    }
+  ]
+}

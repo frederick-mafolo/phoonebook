@@ -1,0 +1,49 @@
+// .circle {
+//     width: 100px;
+//     height: 100px;
+//     background: red;
+//     border-radius: 50%
+//   }
+
+
+.res-circle {
+    width: 20%;
+    border-radius: 50%;
+    background: #bcd6ff;
+    line-height: 0;
+    position: relative;
+  }
+   
+  .res-circle::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+   
+  .circle-txt {
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 100px;
+  }
+
+  .contact-name{   
+     
+    margin: auto;
+    font-weight: 100w;
+    font-size: 70px;
+}
+.contact-details{
+    margin-top:40px ;
+    border: 1px solid rgb(136, 130, 130);
+    border-radius: 7px;
+    height: 70px;
+    #details-title,#number{
+        margin: auto;
+    }
+    #number{
+        color: rgb(78, 78, 238);
+    }
+}

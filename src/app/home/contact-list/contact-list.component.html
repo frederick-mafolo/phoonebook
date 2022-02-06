@@ -1,0 +1,48 @@
+<form class="search-form">
+
+<mat-form-field class="input-full-width">
+    <span matPrefix> </span>
+    <input type="text" matInput placeholder="Search" name= "search"  (keyup)="onSearch($event)">
+    <!-- <button matSuffix mat-icon-button><mat-icon class="search-icon ">search</mat-icon></button> -->
+    
+</mat-form-field>
+
+</form>
+
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+    class="mat-elevation-z8">
+
+
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Name">
+      Name
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="phonenumber">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Phone number">
+      Phone number
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.mobilenumber}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="jobtitle">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Job title">
+      Job title & company
+    </th>
+    <td mat-cell *matCellDef="let element">  </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="contact-row" (click)="viewContacts(row)"></tr>
+
+</table>
+
+<!-- <div class="res-circle">
+    <div class="circle-txt">P</div>
+</div> -->

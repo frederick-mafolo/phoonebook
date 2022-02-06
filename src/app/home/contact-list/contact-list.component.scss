@@ -1,0 +1,59 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+   tr :hover{
+        cursor: pointer;
+  }
+
+
+
+  
+.res-circle {
+    width: 4%;
+    border-radius: 50%;
+    background: #bcd6ff;
+    line-height: 0;
+    position: relative;
+  }
+   
+  .res-circle::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+   
+  .circle-txt {
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .search-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .input-full-width {
+    width: 100%;
+  }
+
+  .search-icon {
+    color: rgb(102, 95, 95);
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.search-icon svg {
+    color: rgb(102, 95, 95);
+}
+
+mat-icon {
+ font-size: 25px !important;
+}
