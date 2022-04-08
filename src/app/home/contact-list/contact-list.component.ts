@@ -20,6 +20,7 @@ export class ContactListComponent implements AfterViewInit,OnInit {
   displayedColumns: string[] = [ 'name', 'phonenumber', 'jobtitle'];
   dataSource= new MatTableDataSource();
   updateObj!:UpdateObj;
+  size!:number
   contactList$!:Observable<any>;
   private subjectKeyUp = new Subject<any>();
 
@@ -46,12 +47,15 @@ export class ContactListComponent implements AfterViewInit,OnInit {
 
   getContact(value: string) {
    this.contactsService.searchItem(value).subscribe(res=>{
-      this.dataSource.data= res as any 
-    });
+    this.size=Object.keys(res).length
     
+      this.dataSource.data= res as any 
+      this.contactsService.updateContacts(this.dataSource.data);
+    });
   }
   ngAfterViewInit() {
     this.contactsService.getList().subscribe((val)=>{
+      this.size=Object.keys(val).length
       this.dataSource.data= val as any  
       this.contactsService.updateContacts(this.dataSource.data);
     })

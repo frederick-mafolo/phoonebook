@@ -9,7 +9,7 @@
 
 </form>
 
-<table mat-table [dataSource]="contactList$" matSort (matSortChange)="announceSortChange($event)"
+<table  *ngIf="size > 0"  mat-table [dataSource]="contactList$" matSort (matSortChange)="announceSortChange($event)"
     class="mat-elevation-z8">
 
 
@@ -40,8 +40,8 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="contact-row" (click)="viewContacts(row)"></tr>
-
 </table>
+<p *ngIf="size==0" style="margin: auto;">No results found</p>
 
 <!-- <div class="res-circle">yyyy
     <div class="circle-txt">P</div>
