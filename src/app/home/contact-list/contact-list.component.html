@@ -9,7 +9,7 @@
 
 </form>
 
-<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+<table mat-table [dataSource]="contactList$" matSort (matSortChange)="announceSortChange($event)"
     class="mat-elevation-z8">
 
 
@@ -43,6 +43,6 @@
 
 </table>
 
-<!-- <div class="res-circle">
+<!-- <div class="res-circle">yyyy
     <div class="circle-txt">P</div>
 </div> -->

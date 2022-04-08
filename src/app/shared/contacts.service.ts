@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contacts } from './contacts.model';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -66,6 +66,15 @@ export class ContactsService {
 
 
 
+  private contacts$: BehaviorSubject<any> = new BehaviorSubject({});
+
+  public getContacts() {
+      return this.contacts$.asObservable();
+  }
+ 
+  public updateContacts(data: {}) {
+      return this.contacts$.next(data);
+  }
   // Get Contacts data
   getList(): Observable<Contacts> {
     return this.http

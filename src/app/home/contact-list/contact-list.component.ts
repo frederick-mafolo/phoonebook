@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { UpdateObj } from 'src/app/shared/contacts.model';
 import { ContactsService } from 'src/app/shared/contacts.service';
 
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 
@@ -20,6 +20,7 @@ export class ContactListComponent implements AfterViewInit,OnInit {
   displayedColumns: string[] = [ 'name', 'phonenumber', 'jobtitle'];
   dataSource= new MatTableDataSource();
   updateObj!:UpdateObj;
+  contactList$!:Observable<any>;
   private subjectKeyUp = new Subject<any>();
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -29,7 +30,9 @@ export class ContactListComponent implements AfterViewInit,OnInit {
   }
 
   ngOnInit(): void {
-    this.getContactList();
+    
+    this.contactList$ = this.contactsService.getContacts();
+
     this.subjectKeyUp
       .pipe(debounceTime(1000), distinctUntilChanged())
       .subscribe((d) => {
@@ -48,6 +51,10 @@ export class ContactListComponent implements AfterViewInit,OnInit {
     
   }
   ngAfterViewInit() {
+    this.contactsService.getList().subscribe((val)=>{
+      this.dataSource.data= val as any  
+      this.contactsService.updateContacts(this.dataSource.data);
+    })
 
     this.dataSource.sort = this.sort;
   }
@@ -61,11 +68,6 @@ export class ContactListComponent implements AfterViewInit,OnInit {
     }
   }
 
-  getContactList(){
-    this.contactsService.getList().subscribe((val)=>{
-      this.dataSource.data= val as any  
-    })
-  }
 
   viewContacts(contact:any) {
     let route = '/details-review';
